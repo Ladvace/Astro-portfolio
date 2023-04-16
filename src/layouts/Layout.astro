@@ -1,8 +1,9 @@
 ---
-import BurgerMenuBtn from "../components/BurgerMenuButn";
 import MobileMenu from "../components/MobileMenu";
 import Navbar from "../components/Navbar";
 import "@fontsource/montserrat";
+// import '../utils/smoothNav'
+
 export interface Props {
   title: string;
   description: string;
@@ -21,14 +22,17 @@ const currentPath = Astro.url.pathname;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <script>
+      import "../utils/smoothNav.ts";
+    </script>
   </head>
   <body>
     <div
-      class="topography-bg absolute top-0 left-0 right-0 bottom-0 z-0 opacity-50"
+      class="topography-bg absolute top-0 left-0 right-0 bottom-0 z-0 opacity-30"
     >
     </div>
     <Navbar client:load currentPath={currentPath} />
-    <MobileMenu client:load currentPath={currentPath}/>
+    <MobileMenu client:load currentPath={currentPath} />
     <div class="z-40">
       <slot />
     </div>

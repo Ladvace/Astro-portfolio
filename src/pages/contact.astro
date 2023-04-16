@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { socials } from "../utils/socials";
 ---
 
 <Layout
@@ -27,9 +28,13 @@ import Layout from "../layouts/Layout.astro";
       <div class="flex flex-col">
         <h6 class="text-neutral-500 whitespace-nowrap mb-1">Socials</h6>
         <ul class="text-neutral-100 font-medium">
-          <li>Linkedin</li>
-          <li>Github</li>
-          <li>Medium</li>
+          {
+            socials.map((social) => (
+              <li>
+                <a href={social.url} target="_blank">{social.title}</a>
+              </li>
+            ))
+          }
         </ul>
       </div>
     </div>
