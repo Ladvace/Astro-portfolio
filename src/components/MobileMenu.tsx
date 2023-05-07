@@ -10,7 +10,7 @@ const MobileMenu = (props: Props) => {
   return (
     <div
       id="mobile-menu"
-      class="flex justify-center items-center fixed w-screen h-screen top-0 bottom-0 left-0 right-0 bg-dark-500 z-50 transition-transform ease-in-out duration-100 border-b-2 lg:border-t-2 lg:border-b-0 border-solid border-red-500 translate-x-full"
+      class="flex justify-center items-center fixed w-screen h-screen top-0 bottom-0 left-0 right-0 bg-dark-500 z-50 transition-transform ease-in-out duration-200 border-b-2 lg:border-t-2 lg:border-b-0 border-solid border-red-500  translate-y-full"
     >
       <header>
         <nav>
