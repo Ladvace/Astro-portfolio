@@ -1,22 +1,24 @@
+import { createSignal } from "solid-js";
 import { toggleMobileMenu } from "../utils/helpers";
 
 type Props = {
-  defaultIsOpened?: boolean;
+  onChange: (isOpen: boolean) => void;
 };
 
 const BurgerMenuBtn = (props: Props) => {
+  const [isOpen, setIsOpen] = createSignal(false);
   return (
     <button
-      aria-expanded={props.defaultIsOpened}
+      aria-expanded={isOpen()}
       class="lg:hidden text-gray-500 hover:text-gray-700 cursor-pointer border-none focus:outline-none"
       onClick={() => {
-        toggleMobileMenu();
+        props.onChange(setIsOpen((prev) => !prev));
       }}
     >
       <svg width="32" height="25">
         <line
           classList={{
-            "translate-x-[6px] translate-y-0 rotate-45": props.defaultIsOpened,
+            "translate-x-[6px] translate-y-0 rotate-45": isOpen(),
           }}
           x1="0"
           y1="2"
@@ -26,7 +28,7 @@ const BurgerMenuBtn = (props: Props) => {
         />
         <line
           classList={{
-            "opacity-0": props.defaultIsOpened,
+            "opacity-0": isOpen(),
           }}
           x1="0"
           y1="12"
@@ -36,8 +38,7 @@ const BurgerMenuBtn = (props: Props) => {
         />
         <line
           classList={{
-            "translate-x-[-12px] translate-y-[9px] -rotate-45":
-              props.defaultIsOpened,
+            "translate-x-[-12px] translate-y-[9px] -rotate-45": isOpen(),
           }}
           x1="0"
           y1="22"

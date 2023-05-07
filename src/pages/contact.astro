@@ -1,11 +1,13 @@
 ---
+import CopyToClipbooard from "../components/CopyToClipbooard";
 import Layout from "../layouts/Layout.astro";
+import { email } from "../utils/constants";
 import { socials } from "../utils/socials";
 ---
 
 <Layout
   title="Gianmarco Cavallo - Contact"
-  description="Let's start working together! Reach out via email: cavallogianmarco@gmail.com"
+  description={`Let's start working together! Reach out via email: ${email}`}
 >
   <main
     class="relative flex flex-col text-left py-4 px-5 md:px-20 min-h-screen max-w-6xl"
@@ -21,8 +23,8 @@ import { socials } from "../utils/socials";
       <address class="flex flex-col mb-4">
         <h6 class="text-neutral-500 whitespace-nowrap mb-1">Contact Details</h6>
 
-        <h4 class="text-neutral-100 max-w-2xl font-medium">
-          cavallogianmarco@gmail.com
+        <h4 class="text-neutral-100 max-w-2xl font-medium flex items-center gap-2">
+          {email} <CopyToClipbooard client:load />
         </h4>
       </address>
       <div class="flex flex-col">
@@ -31,7 +33,9 @@ import { socials } from "../utils/socials";
           {
             socials.map((social) => (
               <li>
-                <a href={social.url} target="_blank">{social.title}</a>
+                <a href={social.url} target="_blank">
+                  {social.title}
+                </a>
               </li>
             ))
           }

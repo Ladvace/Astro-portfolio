@@ -27,13 +27,12 @@ const currentPath = Astro.url.pathname;
     </script>
     <link rel="sitemap" href="/sitemap-index.xml" />
   </head>
-  <body>
+  <body class="overflow-hidden">
     <div
       class="topography-bg absolute top-0 left-0 right-0 bottom-0 z-0 opacity-30"
     >
     </div>
     <Navbar client:load currentPath={currentPath} />
-    <MobileMenu client:load currentPath={currentPath} />
     <div class="z-40">
       <slot />
     </div>
