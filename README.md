@@ -46,4 +46,3 @@ You just need to fork this repo and linking it to your Netlify account.
 ## Authors ❤️
 
 - Gianmarco - https://github.com/Ladvace
-```
