@@ -1,0 +1,50 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  project: CollectionEntry<"work">;
+}
+
+const { data, slug } = Astro.props.project;
+---
+
+<a href={`/work/${slug}`}>
+  <div
+    class={`relative flex justify-between w-full max-w-7xl bg-center bg-cover rounded-xl bg-dark-500 border-solid border-2 border-dark-400 hover:border-red-500 overflow-hidden cursor-pointer hover:scale-105 hover:drop-shadow-2xl transition-all duration-200 ease-in-out`}
+    style={{
+      "background-image": `url("${data.img.url}")`,
+    }}
+  >
+    <div
+      class="z-0 absolute top-0 bottom-0 left-0 right-0 bg-gradient-to-t from-dark-500 from-20% w-full h-full"
+    >
+    </div>
+    <div
+      class="z-0 absolute top-0 bottom-0 left-0 right-0 bg-gradient-to-r from-dark-500 from-30% w-full h-full"
+    >
+    </div>
+    <div
+      class="z-0 absolute top-0 bottom-0 left-0 right-0 bg-gradient-to-l from-dark-500 w-full h-full"
+    >
+    </div>
+    <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 h-full w-full p-4 z-10">
+      <div>
+        <h2 class="text-white font-bold text-2xl mb-4">{data.title}</h2>
+        <p class="text-neutral-400 max-w-xl">{data.description}</p>
+      </div>
+	  <svg
+		xmlns="http://www.w3.org/2000/svg"
+		fill="none"
+		viewBox="0 0 24 24"
+		stroke-width={1.5}
+		stroke="currentColor"
+		class="w-6 h-6 text-white z-10"
+	  >
+		<path
+		  stroke-linecap="round"
+		  stroke-linejoin="round"
+		  d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path>
+	  </svg>
+    </div>
+  </div>
+</a>

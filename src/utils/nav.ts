@@ -4,6 +4,14 @@ export const routes = [
     slug: "/",
   },
   {
+    title: "Work",
+    slug: "/work",
+  },
+  {
+    title: "Blog",
+    slug: "/blog",
+  },
+  {
     title: "About",
     slug: "/about",
   },

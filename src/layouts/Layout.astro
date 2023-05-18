@@ -1,8 +1,6 @@
 ---
-import MobileMenu from "../components/MobileMenu";
 import Navbar from "../components/Navbar";
 import "@fontsource/montserrat";
-// import '../utils/smoothNav'
 
 export interface Props {
   title: string;
@@ -27,13 +25,13 @@ const currentPath = Astro.url.pathname;
     </script>
     <link rel="sitemap" href="/sitemap-index.xml" />
   </head>
-  <body class="overflow-hidden">
+  <body>
     <div
-      class="topography-bg absolute top-0 left-0 right-0 bottom-0 z-0 opacity-30"
+      class="topography-bg fixed top-0 left-0 right-0 bottom-0 z-0 opacity-30"
     >
     </div>
     <Navbar client:load currentPath={currentPath} />
-    <div class="z-40">
+    <div class="z-40 relative 2xl:max-w-7xl mx-auto">
       <slot />
     </div>
   </body>
