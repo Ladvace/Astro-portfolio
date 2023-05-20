@@ -19,7 +19,7 @@ export const formatDate = (dateString: string) => {
 
   let monthName = monthNames[monthIndex];
 
-  let readableDate = day + ' ' + monthName + ' ' + year;
+  let readableDate = `${day} ${monthName} ${year}`;
 
   return readableDate;
 }
