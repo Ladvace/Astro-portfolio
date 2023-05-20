@@ -1,11 +1,11 @@
 ---
-import WorkPreview from "../../components/WorkPreview.astro";
+import BlogPreviewCard from "../../components/BlogPreviewCard.astro";
 import Layout from "../../layouts/Layout.astro";
 import { getCollection } from "astro:content";
 
-const sortedProjects = (await getCollection("work")).sort(
-  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
-);
+const sortedPosts = (await getCollection("blog"))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
 ---
 
 <Layout
@@ -13,16 +13,14 @@ const sortedProjects = (await getCollection("work")).sort(
   description="I am a software developer with over two years of front-end development experience. I have worked on both enterprise and open-source software development projects. I am based in Italy and am currently working as a freelancer."
 >
   <main
-    class="relative flex flex-col text-left py-4 px-5 md:px-20 min-h-screen max-w-6xl"
+    class="relative flex flex-col text-left py-4 px-5 md:px-20 min-h-screen w-full"
   >
     <div class="max-w-4xl z-40">
-      <header
-        class="header-container flex items-center mt-20 lg:mt-56"
-      >
+      <header class="header-container flex items-center mt-20 lg:mt-56">
         <h1 class="text-white text-5xl font-bold whitespace-nowrap">Blog</h1>
       </header>
       <div class="flex flex-col gap-4 mt-6 mb-12 lg:mb-6 h-full w-full">
-        {sortedProjects.map((project) => <WorkPreview project={project} />)}
+        {sortedPosts.map((post) => <BlogPreviewCard post={post} />)}
       </div>
     </div>
   </main>

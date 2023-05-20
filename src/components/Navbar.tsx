@@ -2,13 +2,10 @@ import { createSignal } from "solid-js";
 import { routes } from "../utils/nav";
 import BurgerMenuBtn from "./BurgerMenuButn";
 import MobileMenu from "./MobileMenu";
+import { isCurrentPath } from "../utils/helpers";
 
 type Props = {
   currentPath: string;
-};
-
-const isCurrentPath = (currentUrlPath: string, slug: string) => {
-  return currentUrlPath === slug || currentUrlPath.startsWith(slug + "/");
 };
 
 const Navbar = (props: Props) => {

@@ -2,52 +2,58 @@
 import { CollectionEntry, getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import Tag from "../../components/Tag.astro";
+import { formatDate } from "../../utils/helpers";
 
 interface Props {
-  entry: CollectionEntry<"work">;
+  entry: CollectionEntry<"blog">;
 }
 
 const { slug } = Astro.params;
 
-const work = (await getCollection("work")).find((page) => page.slug === slug);
-if (!work) return Astro.redirect("/404");
-const { Content } = await work.render();
+const blog = (await getCollection("blog")).find((page) => page.slug === slug);
+if (!blog) return Astro.redirect("/404");
+const { Content } = await blog.render();
 ---
 
-<Layout title={work.data.title} description={work.data.description}>
+<Layout title={blog.data.title} description={blog.data.description}>
   <div id="article" class="mt-0 mb-12 lg:mb-0 lg:mt-56 px-4">
     <div>
       <header>
-        <main>
-          <div class="max-w-3xl mx-auto my-0">
-            <a class="text-neutral-400 mb-4" href="/work/">Back</a>
-            <h1 class="text-white text-5xl font-bold m-0">{work.data.title}</h1>
-            <div class="wrapper gap-2 text-neutral-400">
-              <div class="w-full">
-                <div class="w-full flex gap-2 my-4">
-                  {work.data.tags.map((t: string) => <Tag title={t} />)}
-                </div>
-                <p class="description mb-4">{work.data.description}</p>
+        <main class="max-w-3xl mx-auto my-0 pt-10 pb-14">
+          <a class="text-neutral-400" href="/blog/">Back</a>
+          <div class="w-full flex flex-col lg:flex-row justify-between mt-4">
+            <h1 class="text-white text-5xl font-bold m-0">
+              {blog.data.title}
+            </h1>
+            <time class="text-neutral-500 flex items-center">
+              {formatDate(blog.data.publishDate)}</time
+            >
+          </div>
+          <div class="wrapper gap-2 text-neutral-400">
+            <div class="w-full">
+              <div class="w-full flex gap-2 my-4">
+                {blog.data.tags.map((t: string) => <Tag title={t} />)}
               </div>
+              <p class="description mb-4">{blog.data.description}</p>
             </div>
-            <div class="relative max-h-96 overflow-hidden rounded-xl mb-4">
-              {
-                work.data.img && (
-                  <img
-                    class="bg-center bg-cover"
-                    src={work.data.img.url}
-                    alt={work.data.img.alt || ""}
-                  />
-                )
-              }
-              <div
-                class="absolute top-0 bottom-0 left-0 right-0 z-10 bg-gradient-to-t from-dark-500 w-full h-full"
-              >
-              </div>
+          </div>
+          <div class="relative max-h-96 overflow-hidden rounded-xl mb-4">
+            {
+              blog.data.img && (
+                <img
+                  class="bg-center bg-cover"
+                  src={blog.data.img.url}
+                  alt={blog.data.img.alt || ""}
+                />
+              )
+            }
+            <div
+              class="absolute top-0 bottom-0 left-0 right-0 z-10 bg-gradient-to-t from-dark-500 w-full h-full"
+            >
             </div>
-            <div class="prose prose-invert">
-              <Content />
-            </div>
+          </div>
+          <div class="prose prose-invert">
+            <Content />
           </div>
         </main>
       </header>

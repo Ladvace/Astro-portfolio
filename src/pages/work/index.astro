@@ -1,10 +1,10 @@
 ---
-import WorkPreview from "../../components/WorkPreview.astro";
+import WorkPreview from "../../components/WorkPreviewCard.astro";
 import Layout from "../../layouts/Layout.astro";
 import { getCollection } from "astro:content";
 
 const sortedProjects = (await getCollection("work")).sort(
-  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+  (a, b) => b.data.startDate.valueOf() - a.data.startDate.valueOf()
 );
 ---
 

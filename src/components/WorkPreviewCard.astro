@@ -1,0 +1,56 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { formatDate } from "../utils/helpers";
+
+interface Props {
+  project: CollectionEntry<"work">;
+}
+
+const { data, slug } = Astro.props.project;
+---
+
+<a href={`/work/${slug}`}>
+  <div
+    class={`relative flex justify-between w-full max-w-7xl bg-center bg-cover rounded-xl bg-dark-500 border-solid border-2 border-dark-400 hover:border-red-500 overflow-hidden cursor-pointer hover:scale-105 hover:drop-shadow-2xl transition-all duration-200 ease-in-out`}
+  >
+    <div
+      class="z-0 absolute top-0 bottom-0 left-0 right-0 bg-gradient-to-t from-dark-500 from-20% w-full h-full"
+    >
+    </div>
+    <div
+      class="z-0 absolute top-0 bottom-0 left-0 right-0 bg-gradient-to-r from-dark-500 from-30% w-full h-full"
+    >
+    </div>
+    <div
+      class="z-0 absolute top-0 bottom-0 left-0 right-0 bg-gradient-to-l from-dark-500 w-full h-full"
+    >
+    </div>
+    <div
+      class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 h-full w-full p-4 z-10"
+    >
+      <div class="w-full">
+        <div class="flex flex-col lg:flex-row w-full justify-between mb-4">
+          <h2 class="text-white font-bold text-2xl m-0">{data.title}</h2>
+          <div class="flex gap-2 items-center text-neutral-500">
+            <time class="font-light text-sm m-0 flex items-center"
+              >{formatDate(data.startDate)}</time
+            >
+            -
+            {
+              data.endDate ? (
+                <time class="font-light text-sm m-0 flex items-center">
+                  {formatDate(data.endDate)}
+                </time>
+              ) : (
+                <time>Present</time>
+              )
+            }
+          </div>
+        </div>
+        <div>
+          <p class="text-neutral-400 max-w-xl">{data.description}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</a>
