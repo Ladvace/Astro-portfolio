@@ -1,5 +1,5 @@
 import rss from "@astrojs/rss";
-import { blogInfo } from "../utils/rss";
+import { blogInfo } from "../config";
 import { getCollection } from "astro:content";
 
 export async function get(context) {

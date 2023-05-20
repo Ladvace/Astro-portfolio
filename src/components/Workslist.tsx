@@ -1,6 +1,6 @@
 import { For, Match, Switch } from "solid-js";
 import { formatDate, getYear } from "../utils/helpers";
-import { works, Work } from "../utils/works";
+import { works, type Work } from "../config";
 
 type Props = {
   work: Work;
@@ -15,7 +15,7 @@ const ShowDate = (date: string, onlyYear?: boolean) => {
 
 const WorkPreviewCard = (props: Props) => {
   return (
-    <div class="relative flex justify-between w-full max-w-7xl bg-center bg-cover rounded-xl bg-dark-500 border-solid border-2 border-dark-400 hover:border-red-500 overflow-hidden cursor-pointer hover:scale-105 hover:drop-shadow-2xl transition-all duration-200 ease-in-out">
+    <div class="relative flex justify-between w-full max-w-7xl bg-center bg-cover rounded-xl bg-dark-500 border-solid border-2 border-dark-400 hover:border-red-500 overflow-hidden cursor-pointer hover:scale-105 hover:drop-shadow-2xl transition-all duration-200 ease-in-out hover:skew-y-1">
       <div class="z-0 absolute top-0 bottom-0 left-0 right-0 bg-gradient-to-t from-dark-500 from-20% w-full h-full"></div>
       <div class="z-0 absolute top-0 bottom-0 left-0 right-0 bg-gradient-to-r from-dark-500 from-30% w-full h-full"></div>
       <div class="z-0 absolute top-0 bottom-0 left-0 right-0 bg-gradient-to-l from-dark-500 w-full h-full"></div>

@@ -9,6 +9,7 @@ const BurgerMenuBtn = (props: Props) => {
   const [isOpen, setIsOpen] = createSignal(false);
   return (
     <button
+      aria-label="burger menu"
       aria-expanded={isOpen()}
       class="lg:hidden text-gray-500 hover:text-gray-700 cursor-pointer border-none focus:outline-none"
       onClick={() => {

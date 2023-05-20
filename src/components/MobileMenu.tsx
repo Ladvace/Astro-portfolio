@@ -1,5 +1,5 @@
 import { isCurrentPath } from "../utils/helpers";
-import { routes } from "../utils/nav";
+import { routes } from "../config";
 
 type Props = {
   currentPath: string;

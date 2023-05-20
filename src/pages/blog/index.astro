@@ -5,7 +5,7 @@ import { getCollection } from "astro:content";
 
 const sortedPosts = (await getCollection("blog"))
   .filter((post) => !post.data.draft)
-  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
 <Layout

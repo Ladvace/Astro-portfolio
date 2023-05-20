@@ -2,6 +2,38 @@
 
 Simple portfolio made in `Astro` and `Solidjs`
 
+## Features 🔥
+
+- [x] Responsive
+- [x] Sitemap
+- [x] Blog RSS feed
+- [x] Work projects page
+- [x] Good lighthouse Score
+- [] dynamic OG image preview for blog posts
+
+## Structure
+
+```
+/
+├── public/
+│   ├── fonts/
+│   ├── favicon.ico
+│   ├── logo.svg
+│   └── robots.txt
+├── src/
+│   ├── components/
+│   ├── content/
+│   │   |  blog/
+│   │   |    └── some-blog-posts.md
+│   │   └── config.ts
+│   ├── layouts/
+│   └── pages/
+│   └── utils/
+│   └── config.ts
+└── config.ts // you can set all the links, info here
+└── package.json
+```
+
 ## Commands 🧞
 
 All commands are run from the root of the project, from a terminal:

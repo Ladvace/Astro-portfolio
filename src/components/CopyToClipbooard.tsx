@@ -1,5 +1,5 @@
 import { Match, Switch, createSignal } from "solid-js";
-import { email } from "../utils/constants";
+import { email } from "../config";
 
 const CopyToClipbooard = () => {
   const [copied, setCopied] = createSignal(false);

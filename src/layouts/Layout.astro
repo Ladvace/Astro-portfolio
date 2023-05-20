@@ -4,7 +4,7 @@ import "@fontsource/montserrat";
 
 export interface Props {
   title: string;
-  description: string;
+  description: string | undefined;
 }
 
 const { title, description } = Astro.props;
