@@ -1,11 +1,6 @@
 ---
-import WorkPreview from "../../components/WorkPreviewCard.astro";
+import Workslist from "../../components/Workslist";
 import Layout from "../../layouts/Layout.astro";
-import { getCollection } from "astro:content";
-
-const sortedProjects = (await getCollection("work")).sort(
-  (a, b) => b.data.startDate.valueOf() - a.data.startDate.valueOf()
-);
 ---
 
 <Layout
@@ -22,7 +17,7 @@ const sortedProjects = (await getCollection("work")).sort(
         <h1 class="text-white text-5xl font-bold whitespace-nowrap">My work</h1>
       </header>
       <div class="flex flex-col gap-4 mt-6 mb-12 lg:mb-6 h-full w-full">
-        {sortedProjects.map((project) => <WorkPreview project={project} />)}
+        <Workslist client:load />
       </div>
     </div>
   </main>
