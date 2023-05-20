@@ -17,6 +17,7 @@ const { data, slug } = Astro.props.post;
       "background-image": `url("${data?.img?.url}")`,
     }}
   >
+  {data?.img?.alt}
     <div
       class="z-0 absolute top-0 bottom-0 left-0 right-0 bg-gradient-to-t from-dark-500 from-20% w-full h-full"
     >
