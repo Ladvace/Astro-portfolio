@@ -10,7 +10,7 @@ export async function get(context) {
     site: context.site,
     items: blog.map((post) => ({
       title: post.data.title,
-      pubDate: post.data.pubDate,
+      pubDate: post.data.publishDate,
       description: post.data.description,
       customData: post.data.customData,
       // Compute RSS link from post `slug`
