@@ -31,7 +31,7 @@ const Navbar = (props: Props) => {
           }}
         />
       </header>
-      <header class="fixed overflow-hidden bottom-0 lg:bottom-auto lg:top-0 left-0 right-0 w-full z-50 border-b-2 lg:border-t-2 lg:border-b-0 border-solid border-red-500">
+      <header class="fixed overflow-hidden bottom-0 lg:bottom-auto lg:top-0 left-0 right-0 w-full z-50 border-b-2 lg:border-t-2 lg:border-b-0 border-solid border-red-500 backdrop-blur-md">
         <nav
           id="navbar"
           class="w-full flex justify-between items-end px-5 md:px-20 py-6 my-0 mx-auto 2xl:max-w-7xl"

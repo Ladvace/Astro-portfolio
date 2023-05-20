@@ -5,17 +5,25 @@ import Tag from "../../components/Tag.astro";
 import { formatDate } from "../../utils/helpers";
 
 interface Props {
-  entry: CollectionEntry<"blog">;
+  post: CollectionEntry<"blog">;
 }
 
-const { slug } = Astro.params;
+export async function getStaticPaths() {
+  const posts = await getCollection("blog", ({ data }) => !data.draft);
 
-const blog = (await getCollection("blog")).find((page) => page.slug === slug);
-if (!blog) return Astro.redirect("/404");
-const { Content } = await blog.render();
+  const postResult = posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+
+  return postResult;
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
 ---
 
-<Layout title={blog.data.title} description={blog.data.description}>
+<Layout title={post.data.title} description={post.data.description}>
   <div id="article" class="mt-0 mb-12 lg:mb-0 lg:mt-56 px-4">
     <div>
       <header>
@@ -23,27 +31,27 @@ const { Content } = await blog.render();
           <a class="text-neutral-400" href="/blog/">Back</a>
           <div class="w-full flex flex-col lg:flex-row justify-between mt-4">
             <h1 class="text-white text-5xl font-bold m-0">
-              {blog.data.title}
+              {post.data.title}
             </h1>
             <time class="text-neutral-500 flex items-center">
-              {formatDate(blog.data.pubDate)}</time
+              {formatDate(post.data.pubDate)}</time
             >
           </div>
           <div class="wrapper gap-2 text-neutral-400">
             <div class="w-full">
               <div class="w-full flex gap-2 my-4">
-                {blog.data.tags.map((t: string) => <Tag title={t} />)}
+                {post.data.tags.map((t: string) => <Tag title={t} />)}
               </div>
-              <p class="description mb-4">{blog.data.description}</p>
+              <p class="description mb-4">{post.data.description}</p>
             </div>
           </div>
           <div class="relative max-h-96 overflow-hidden rounded-xl mb-4">
             {
-              blog.data?.img && (
+              post.data?.img && (
                 <img
                   class="bg-center bg-cover"
-                  src={blog.data.img?.url}
-                  alt={blog.data.img?.alt || ""}
+                  src={post.data.img?.url}
+                  alt={post.data.img?.alt || ""}
                 />
               )
             }
