@@ -40,6 +40,7 @@ const sortedPosts = (await getCollection("blog"))
         </h1>
       </header>
       <div class="flex flex-col gap-4 mt-6 mb-12 lg:mb-6 h-full w-full">
+        {sortedPosts.length === 0 && <div class="text-white flex justify-center items-center min-h-[60vh]">No Posts</div>}
         {sortedPosts.map((post) => <BlogPreviewCard post={post} />)}
       </div>
     </div>
