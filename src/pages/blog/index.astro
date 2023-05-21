@@ -1,5 +1,6 @@
 ---
 import BlogPreviewCard from "../../components/BlogPreviewCard.astro";
+import { rssUrl } from "../../config";
 import Layout from "../../layouts/Layout.astro";
 import { getCollection } from "astro:content";
 
@@ -17,7 +18,26 @@ const sortedPosts = (await getCollection("blog"))
   >
     <div class="max-w-4xl z-40">
       <header class="header-container flex items-center mt-20 lg:mt-56">
-        <h1 class="text-white text-5xl font-bold whitespace-nowrap">Blog</h1>
+        <h1
+          class="text-white text-5xl font-bold whitespace-nowrap flex gap-4 items-baseline"
+        >
+          Blog <a href={rssUrl} target="_blank"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width={1.5}
+              stroke="currentColor"
+              class="w-6 h-6 hover:stroke-[#f26522] cursor-pointer"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12.75 19.5v-.75a7.5 7.5 0 00-7.5-7.5H4.5m0-6.75h.75c7.87 0 14.25 6.38 14.25 14.25v.75M6 18.75a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
+              ></path>
+            </svg></a 
+          >
+        </h1>
       </header>
       <div class="flex flex-col gap-4 mt-6 mb-12 lg:mb-6 h-full w-full">
         {sortedPosts.map((post) => <BlogPreviewCard post={post} />)}

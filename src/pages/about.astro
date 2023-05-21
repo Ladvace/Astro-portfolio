@@ -1,4 +1,5 @@
 ---
+import { aboutmeDescription } from "../config";
 import Layout from "../layouts/Layout.astro";
 ---
 
@@ -19,12 +20,7 @@ import Layout from "../layouts/Layout.astro";
       </header>
       <div class="overflow-hidden">
         <p class="text-neutral-400 mt-6 max-w-2xl">
-          I am a software developer with over two years of front-end development
-          experience. I have worked on both enterprise and open-source software
-          development projects. I am based in Italy and am currently working as
-          a freelancer. I code primarily in Solidjs, Javascript, Node.js,
-          React.js, and other web technologies, but I am always willing to learn
-          and use the best technology and approach to solve the problem at hand.
+         {aboutmeDescription}
         </p>
       </div>
     </div>

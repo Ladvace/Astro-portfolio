@@ -2,14 +2,22 @@
 
 Simple portfolio made in `Astro` and `Solidjs`
 
+you can view a demo [here](https://astro-personal-portfolio.netlify.app)
+
 ## Features 🔥
 
+- [x] SSG
 - [x] Responsive
 - [x] Sitemap
+- [x] Good lighthouse Score
 - [x] Blog RSS feed
 - [x] Work projects page
-- [x] Good lighthouse Score
+- [x] `Now` page ([What's that?](https://nownownow.com/about))
+- [] Blog pagination
 - [] dynamic OG image preview for blog posts
+- [x] Smooth page transition (this might not work since it use browser API) 
+
+In order to disable a pages you need to prefix the file name with an `_` (e.g.: `about.astro` -> `_about.astro`)
 
 ## Structure
 
@@ -30,7 +38,7 @@ Simple portfolio made in `Astro` and `Solidjs`
 │   └── pages/
 │   └── utils/
 │   └── config.ts
-└── config.ts // you can set all the links, info here
+└── config.ts // you can set all social links, email and other info here
 └── package.json
 ```
 
