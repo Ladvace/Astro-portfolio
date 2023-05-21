@@ -4,6 +4,8 @@ Simple portfolio made in `Astro` and `Solidjs`
 
 you can view a demo [here](https://astro-personal-portfolio.netlify.app)
 
+<img src="https://i.imgur.com/ND4A74R.png" width="80%" />
+
 ## Features 🔥
 
 - [x] SSG
