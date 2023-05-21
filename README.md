@@ -13,8 +13,8 @@ you can view a demo [here](https://astro-personal-portfolio.netlify.app)
 - [x] Blog RSS feed
 - [x] Work projects page
 - [x] `Now` page ([What's that?](https://nownownow.com/about))
-- [] Blog pagination
-- [] dynamic OG image preview for blog posts
+- [ ] Blog pagination
+- [ ] dynamic OG image preview for blog posts
 - [x] Smooth page transition (this might not work since it use browser API) 
 
 In order to disable a pages you need to prefix the file name with an `_` (e.g.: `about.astro` -> `_about.astro`)
